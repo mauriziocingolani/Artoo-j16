@@ -24,7 +24,7 @@ and open the template in the editor.
         </div>
         <!-- Esercizio 3: disabilitare il pulsante -->
         <div id="target3">
-            <button>Ciao!</button>
+            <input type="button" value="Ciao!" />
         </div>
         <!-- Esercizio 4: uncheck tutte le 5 checkbox -->
         <div id="target4">
@@ -42,7 +42,17 @@ and open the template in the editor.
         <script>
             jQuery.noConflict();
             jQuery(document).ready(function ($) {
-
+                // 1
+                $('#target1 span').text('Altro testo');
+                // 2
+                $('#target2 span').clone().attr('id', 'nuovo_span').insertAfter($('#target2 span'));
+                $('#target2 span').clone().attr('id', 'nuovo_span').appendTo('#target2');
+                // 3
+                $('#target3 :button').attr('disabled', false);
+                // 4
+                $('#target4 input').removeAttr('checked');
+                // 5
+                $('#target5 .child').appendTo('#target6');
             });
         </script>
     </body>
