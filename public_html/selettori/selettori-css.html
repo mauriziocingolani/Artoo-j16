@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            <p>paragrafo</p>
+        </div>
+        <div class="test">a</div>
+        <div class="test">b</div>
+        <div class="test test2">b</div>
+        <p>paragrafo no div</p>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                console.log($('#div2').html());
+                console.log($('.test').text());
+                console.log($('.test.test2').text());
+                console.log($('div p').text('paragrafo interno'));
+                console.log($('#div1').length);
+                $('.test').addClass('test3');
+                $('.test').hide();
+                //
+                $('.test').each(function (i,element) {
+                    var a = $(this);
+                    console.log(a);
+                });
+            });
+        </script>
+    </body>
+</html>
