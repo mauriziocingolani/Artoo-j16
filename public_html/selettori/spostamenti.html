@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .red {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+
+        <span id="span">Roba da spostare</span>
+
+        <ul class="lista">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ul>
+
+        </ul>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+//                $('#span').prependTo($('.lista li:nth-last-child(1)').prepend(' ')).css('color', 'red');
+//                $('.lista li:first').prepend($('#span').css('color', 'green').append(' '));
+
+//                $('#span').clone().attr('id', 'span2').css('color', 'blue').appendTo($('.lista li').eq(1));
+//                $('#span2').css('color', 'pink');
+
+//                $('.lista li').wrapAll('<span class="red"></span>');
+
+                $('<span />', {
+                    style: 'color: blue',
+                    class: 'test1'
+                }).appendTo($('.lista li:last'));
+            });
+        </script>
+    </body>
+</html>
