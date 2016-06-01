@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <!-- Esercizio 1: sostituire il tag h2 (con testo contenuto) con un tag h3 -->
+        <div id="target">
+            <H2>H2</h2>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                var a = $('#target h2');
+                a.replaceWith($('<h3/>').text(a.text()));
+            });
+        </script>
+    </body>
+</html>
