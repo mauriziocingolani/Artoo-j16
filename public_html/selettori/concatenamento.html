@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <ul>
+            <li class="test">1</li>
+            <li id="2" class="test">2</li>
+            <li class="test">3</li>
+            <li class="test"><span>4</span></li>
+            <li class="test">5</li>
+        </ul>
+        
+        <input id="rb_1" type="radio" name="test" value="1v"/>
+        <label for="rb_1">1</label>
+        <input id="rb_2" type="radio" name="test" value="2v"/>
+        <label for="rb_1">2</label>
+        <input id="rb_3" type="radio" name="test" value="3v" />
+        <label for="rb_1">3</label>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery(document).ready(function ($) {
+                var a = $('li');
+                a.addClass('test2').eq(2).text('pippo').end().css('color', 'red');
+                a.not('#2').css('font-weight', 'bold');
+                a.filter('#2').css('font-style', 'italic');
+                a.has('span').css('background', 'yellow');
+                a.first().css({
+                    fontSize: '54px',
+                    fontFamily: 'Courier',
+                });
+                a.filter(function () {
+                    var c = parseInt($(this).text(), 10);
+                    return c % 2 == 0;
+                }).css('text-decoration', 'underline');
+                a.each(function () {
+                    console.log($(this).css('color'));
+                });
+            });
+        </script>
+    </body>
+</html>
