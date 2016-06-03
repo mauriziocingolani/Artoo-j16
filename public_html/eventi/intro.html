@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <div id="div">
+            <button class="test">Cliccami!</button>
+            <button class="test">Cliccami!</button>
+            <button class="test">Cliccami!</button>
+            <button class="test">Cliccami!</button>
+            <button>Cliccami 2!</button>
+            <a href="http://google.com">Vai a Google</a>
+            <input type="text" class="input" />
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $('#div').on('click', '.test', function (event) {
+                    console.log(this.id);
+                    alert('Cliccato il pulsante in posizione (' + event.pageX + ', ' + event.pageY + ')!');
+                });
+                $('<button/>', {class: 'test', text: 'Click me!'}).appendTo($('#div'));
+                $('a').on('click', function (event) {
+                    alert('Cliccato link');
+                    event.preventDefault();
+                });
+                $('#div a').on('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                });
+                $('#div').on('click', function (event) {
+                    console.log(event);
+                });
+            });
+        </script>
+    </body>
+</html>
