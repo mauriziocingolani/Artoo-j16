@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #p2 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <p id="p1">Paragrafo visibile</p>
+        <p id="p2">Paragrafo nascosto</p>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                for (var i = 0; i < 3;i++) {
+                    console.log(i);
+                    $('#p1').slideToggle(3000, function () {
+                        console.log('Animazioni completate!');
+                    });
+                    setTimeout(function () {
+                        $(':animated').stop();
+                    }, 2000);
+                }
+            });
+        </script>
+    </body>
+</html>
