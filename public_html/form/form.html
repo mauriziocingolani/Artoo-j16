@@ -14,6 +14,9 @@ and open the template in the editor.
                 display: inline-block;
                 width: 150px;
             }
+            .error {
+                border-color: red;
+            }
         </style>
     </head>
     <body>
@@ -21,7 +24,7 @@ and open the template in the editor.
         <form id="form1" action="">
             <div>
                 <label for="nome">Nome e cognome</label>
-                <input id="nome" name="nome" type="text" />
+                <input id="nome" name="nome" type="text" class="test" />
             </div>
             <div>            
                 <label for="email">Email</label>
@@ -29,7 +32,7 @@ and open the template in the editor.
             </div>
             <div>            
                 <label for="messaggio">Messaggio</label>
-                <textarea id="messaggio" name="messaggio" rows="5" cols="30">sadasdas</textarea>
+                <textarea id="messaggio" name="messaggio" rows="5" cols="30"></textarea>
             </div>
             <div>
                 <button type="submit">Invia dati</button>
@@ -43,13 +46,17 @@ and open the template in the editor.
                 $('#form1').on('submit', function (event) {
                     event.preventDefault();
                     var canSubmit = true;
+                    $('#form1').find('input,textarea').removeClass('error');
                     if ($('#nome').val().length <= 0) {
+                        $('#nome').addClass('error');
                         canSubmit = false;
                     }
                     if ($('#email').val().length <= 0) {
+                        $('#email').addClass('error');
                         canSubmit = false;
                     }
                     if ($('#messaggio').val().length <= 0) {
+                        $('#messaggio').addClass('error');
                         canSubmit = false;
                     }
                     if (canSubmit) {
