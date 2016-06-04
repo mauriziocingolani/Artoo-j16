@@ -18,18 +18,18 @@ and open the template in the editor.
     </head>
     <body>
 
-        <form id="form1" method="post">
+        <form id="form1" action="">
             <div>
                 <label for="nome">Nome e cognome</label>
                 <input id="nome" name="nome" type="text" />
             </div>
             <div>            
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" />
+                <input id="email" name="email" type="text" />
             </div>
             <div>            
                 <label for="messaggio">Messaggio</label>
-                <textarea id="messaggio" rows="5" cols="30"></textarea>
+                <textarea id="messaggio" name="messaggio" rows="5" cols="30">sadasdas</textarea>
             </div>
             <div>
                 <button type="submit">Invia dati</button>
@@ -40,7 +40,22 @@ and open the template in the editor.
         <script>
             jQuery.noConflict();
             jQuery(document).ready(function ($) {
-
+                $('#form1').on('submit', function (event) {
+                    event.preventDefault();
+                    var canSubmit = true;
+                    if ($('#nome').val().length <= 0) {
+                        canSubmit = false;
+                    }
+                    if ($('#email').val().length <= 0) {
+                        canSubmit = false;
+                    }
+                    if ($('#messaggio').val().length <= 0) {
+                        canSubmit = false;
+                    }
+                    if (canSubmit) {
+                        alert('Ok, tutti i campi sono compilati!');
+                    }
+                });
             });
         </script>
     </body>
