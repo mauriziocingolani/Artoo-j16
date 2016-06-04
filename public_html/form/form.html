@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            label {
+                display: inline-block;
+                width: 150px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <form id="form1" method="post">
+            <div>
+                <label for="nome">Nome e cognome</label>
+                <input id="nome" name="nome" type="text" />
+            </div>
+            <div>            
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" />
+            </div>
+            <div>            
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" rows="5" cols="30"></textarea>
+            </div>
+        </form>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+
+            });
+        </script>
+    </body>
+</html>
