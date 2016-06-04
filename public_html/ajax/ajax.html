@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <p id="par1">Testo paragrafo.</p>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $.ajax({
+                    url: 'json.json',
+                    method: 'GET',
+                    data: {
+                        name: 'Maurizio'
+                    },
+                    dataType: 'json',
+                    async: true,
+                    context: $('#par1'),
+                    success: function (response) {
+                        this.text(response.content);
+                        for (element in response.style) {
+                            this.css(element, response.style[element]);
+                        }
+                    },
+                    error: function (xhr, status, errorThrown) {
+                        alert(status);
+                    },
+                    complete: function () {
+                        console.log('Finita!');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
