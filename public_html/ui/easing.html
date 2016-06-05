@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <style>
+            .test {
+                background: red;
+                height: 100px;
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="test"></div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $.each($.easing, function (name, impl) {
+                    console.log(name,impl);
+                });
+                $('.test').animate({
+                    height: 0
+                }, 3000, 'easeOutBounce');
+            });
+        </script>
+    </body>
+</html>

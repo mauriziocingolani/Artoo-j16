@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <style>
+            .div {
+                background: red;
+            }
+            .larga {
+                height: 50px;
+                width: 200px;
+            }
+            .lunga {
+                height: 200px;
+                width: 50px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="div larga">Testo della div.</div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                /*
+                 * addClass, removeClass, toggleClass, switchClass
+                 */
+                $('.div').switchClass('larga', 'lunga', 3000);
+            });
+        </script>
+    </body>
+</html>

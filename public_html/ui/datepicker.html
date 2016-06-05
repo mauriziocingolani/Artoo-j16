@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <!--<div id="calendar"></div>--> <!-- per calendario fisso -->
+        <input id="date" type="text" />
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="it.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $.datepicker.setDefaults($.datepicker.regional[ "it" ]);
+                $('#date').datepicker({
+                    appendText: "(dd-mm-yy)",
+                    autoSize: true,
+                    beforeShowDay: function (date) {
+                        return [date.getMonth() != 3, 'cssClass', 'tooltip'];
+                    },
+                    buttonText: '...',
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd-mm-yy',
+                    defaultDate: new Date,
+                    /* dayNames, dayNamesMin, dayNamesShort */
+                    duration: 'slow',
+                    firstDay: 1,
+                    hideIfNoPrevNext: true,
+                    maxDate: '31-12-2016',
+                    minDate: '01-01-2016',
+                    /* monthNames, monthNamesShort */
+                    showButtonPanel: true, /* currentText e closetext per i pulsanti */
+                    showMonthAfterYear: true,
+                    showOn: 'both', /* focus, button, both */
+                    showOtherMonths: false,
+                    showWeek: true,
+                    yearRange: 'c-2:c+2'
+                });
+//                $('#date').datepicker('setDate', new Date);
+            });
+        </script>
+    </body>
+</html>
