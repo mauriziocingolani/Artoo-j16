@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <p>ciAo</p>
+        <p>maUrizio</p>
+        <p>cinGolani</p>
+        <p>pippo Pluto paperino</p>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="myplugin.js"></script>
+        <script src="boilerplate.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $('p').defaultPluginName();
+                $('p').eq(0).defaultPluginName();
+            });
+        </script>
+    </body>
+</html>
