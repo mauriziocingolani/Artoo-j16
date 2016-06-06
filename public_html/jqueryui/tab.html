@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <div id="tab">
+            <ul>
+                <li><a href="#tab1">Tab 1</a></li>
+                <li><a href="#tab2">Tab 2</a></li>
+                <li><a href="#tab3">Tab 3</a></li>
+            </ul>
+            <div id="tab1">1. To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+            <div id="tab2">2. To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+            <div id="tab3">4. To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $('#tab').tabs({
+                    active: 1,
+                    collapsible: true,
+                    event: 'click',
+                    show: 'slide',
+                    hide: 'explode'
+                });
+                /* Inibire il cambio tab se il contenuto del tab su cui sto cercando di andare
+                 * NON contiene la cifra numerica corrispondente all'ID del tab stesso.*/
+            });
+        </script>
+    </body>
+</html>
