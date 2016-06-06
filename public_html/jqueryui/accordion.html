@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <div id="acc">
+            <h2>Sezione 1</h2>
+            <div>1. To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+            <h2>Sezione 2</h2>
+            <div>2. To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+            <h2>Sezione 3</h2>
+            <div>3. To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function ($) {
+                $('#acc').accordion({
+                    active: 2,
+                    event: 'mouseover',
+                    header: 'h2',
+                    activate: function () {
+                        console.log("Attivato un tab!");
+                    }
+                });
+                $('#acc').accordion("option", "event", "click");
+                $('#acc').bind('accordionactivate', function (event, ui) {
+//                    event.stopPropagation();
+                    console.log("Attivato un tab (nuova versione)!");
+                });
+            });
+        </script>
+    </body>
+</html>
