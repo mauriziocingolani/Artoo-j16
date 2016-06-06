@@ -38,17 +38,24 @@ and open the template in the editor.
             jQuery(document).ready(function ($) {
                 $('#acc').accordion({
                     active: 2,
-                    event: 'mouseover',
+                    event: 'click',
                     header: 'h2',
-                    activate: function () {
+                    activate: function (event, ui) {
                         console.log("Attivato un tab!");
+                        console.log(ui);
+                    },
+                    beforeActivate: function (event, ui) {
+                        console.log("Sto per attivare un tab...");
+                        console.log(ui.oldHeader.text());
+                        console.log(ui.newHeader.text());
+//                        event.preventDefault();
                     }
                 });
-                $('#acc').accordion("option", "event", "click");
-                $('#acc').bind('accordionactivate', function (event, ui) {
-//                    event.stopPropagation();
+//                $('#acc').accordion("option", 'activate', null);
+                $('#acc').on('accordionactivate', function (event, ui) {
                     console.log("Attivato un tab (nuova versione)!");
                 });
+                $('#acc').off('accordionactivate');
             });
         </script>
     </body>
