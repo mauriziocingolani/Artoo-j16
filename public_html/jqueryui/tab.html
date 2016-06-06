@@ -43,10 +43,16 @@ and open the template in the editor.
                     collapsible: true,
                     event: 'click',
                     show: 'slide',
-                    hide: 'explode'
+                    hide: 'explode',
                 });
                 /* Inibire il cambio tab se il contenuto del tab su cui sto cercando di andare
                  * NON contiene la cifra numerica corrispondente all'ID del tab stesso.*/
+                $('#tab').on('tabsbeforeactivate', function (event, ui) {
+                    var panel = ui.newPanel;
+                    if (panel.text().indexOf(panel.attr('id')[3]) < 0)
+                        event.preventDefault();
+                });
+                
             });
         </script>
     </body>
