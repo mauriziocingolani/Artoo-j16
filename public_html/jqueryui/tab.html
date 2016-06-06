@@ -44,15 +44,26 @@ and open the template in the editor.
                     event: 'click',
                     show: 'slide',
                     hide: 'explode',
+                    beforeActivate: function (event, ui) {
+                        var panel = ui.newPanel;
+                        if (panel.text().indexOf(panel.attr('id')[3]) < 0)
+                            event.preventDefault();
+                    }
                 });
                 /* Inibire il cambio tab se il contenuto del tab su cui sto cercando di andare
                  * NON contiene la cifra numerica corrispondente all'ID del tab stesso.*/
-                $('#tab').on('tabsbeforeactivate', function (event, ui) {
-                    var panel = ui.newPanel;
-                    if (panel.text().indexOf(panel.attr('id')[3]) < 0)
-                        event.preventDefault();
-                });
-                
+//                $('#tab').on('tabsbeforeactivate', function (event, ui) {
+//                    var panel = ui.newPanel;
+//                    if (panel.text().indexOf(panel.attr('id')[3]) < 0)
+//                        event.preventDefault();
+//                });
+                /* Inserire dopo il tab un pulsante che se cliccato
+                 * inibisce il comportamento di cui sopra. */
+                $('<button/>', {text: 'Sblocca tutti i tab'}).
+                        insertAfter('#tab').
+                        one('click', function (event) {
+                            $('#tab').off('tabsbeforeactivate').tabs("option", "beforeActivate", null);
+                        });
             });
         </script>
     </body>
